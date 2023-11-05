@@ -1,5 +1,25 @@
+html {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+
+}
+
+*, *::after, *::before {
+    box-sizing: inherit;
+}
+
 .page {
-    padding-top: 100px;
+    padding-top: 20px;
+}
+
+th:nth-child(9), td:nth-child(9) {
+    width: 162px;
 }
 
 /* Table */
@@ -25,7 +45,7 @@
     align-items: center;
 }
 
-.btn-close:focus{
+.btn-close:focus {
     border: none;
     box-shadow: none;
 }
@@ -51,9 +71,8 @@
     resize: none;
 }
 
-.add-record-btn {
+.add-record-btn, .edit-record-btn {
     width: 50%;
-    margin: 24px auto 0;
 }
 
 .btn.disabled {
@@ -69,7 +88,7 @@
     top: 95%;
 }
 
-.form-add-record .col {
+.col {
     position: relative;
 }
 
