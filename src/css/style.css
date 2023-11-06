@@ -15,7 +15,7 @@ html {
 }
 
 .page {
-    padding-top: 20px;
+    padding-top: 50px;
 }
 
 th:nth-child(9), td:nth-child(9) {
@@ -23,6 +23,10 @@ th:nth-child(9), td:nth-child(9) {
 }
 
 /* Table */
+
+.table-wrapper {
+    min-height: 521.6px;
+}
 
 .table {
     text-align: center;
@@ -101,4 +105,14 @@ th:nth-child(9), td:nth-child(9) {
 .toast__svg {
     width: 20px;
     height: 20px;
+}
+
+/* Pagination*/
+
+.pagination {
+    float: right;
+}
+
+.dost-disabled {
+    pointer-events: none;
 }
