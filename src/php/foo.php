@@ -6,7 +6,7 @@ include "db.php";
 
 session_start();
 if (isset($_SESSION["message"])) {
-    echo $_SESSION["message"];
+    setcookie("message", $_SESSION["message"], time() + 10);
     unset($_SESSION["message"]);
 }
 
@@ -83,6 +83,7 @@ if (isset($_POST["delete"])) {
     header("Location: " . $_SERVER["HTTP_REFERER"]);
 }
 
+
 // Update
 
 if (isset($_POST["edit"])) {
@@ -102,3 +103,29 @@ $recordsPerPage = 10;
 $totalRecords = count($result);
 $totalPages = ceil($totalRecords / $recordsPerPage);
 $offset = ($currentPage - 1) * $recordsPerPage;
+$pagesToShow = array();
+$radius = 5;
+$pagesToShow[] = 1;
+if ($currentPage > $radius + 1) {
+    $pagesToShow[] = "...";
+}
+for ($i = $currentPage - $radius; $i <= $currentPage + $radius; $i++) {
+    if ($i > 1 && $i < $totalPages) {
+        $pagesToShow[] = $i;
+    }
+}
+if ($currentPage < $totalPages - $radius) {
+    $pagesToShow[] = "...";
+}
+$pagesToShow[] = $totalPages;
+
+$prevPage = $currentPage > 1 ? $currentPage - 1 : 1;
+$nextPage = $currentPage < $totalPages ? $currentPage + 1 : $totalPages;
+$prevDisabled = $currentPage == 1 ? "disabled" : "";
+$nextDisabled = $currentPage == $totalPages ? "disabled" : "";
+
+$recordsOnCurrentPage = $totalRecords - ($currentPage - 1) * $recordsPerPage;
+if ($recordsOnCurrentPage <= 0) {
+    $prevPage = $currentPage > 1 ? $currentPage - 1 : 1;
+    header("Location: ?page=$prevPage");
+}
