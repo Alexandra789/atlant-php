@@ -70,7 +70,7 @@ th:nth-child(9), td:nth-child(9) {
 
 .form__textarea {
     max-width: 418px;
-    height: 150px;
+    height: 80px;
     margin: 0 auto;
     resize: none;
 }
