@@ -154,11 +154,12 @@
                                             <label for="nameDoc" class="form-label">Name document</label>
                                             <input value="<?php echo $res->name_doc; ?>" type="text"
                                                    class="form-control"
-                                                   name="name_doc" id="name_doc">
+                                                   name="name_doc" id="nameDoc"/>
                                         </div>
                                         <div class="col">
                                             <label for="dateDoc" class="form-label">Date document</label>
-                                            <input value="<?php echo $res->data_doc; ?>" id="dateDoc" name="data_doc"
+                                            <input value="<?php echo date('Y-m-d', strtotime($res->data_doc)); ?>"
+                                                   id="dateDoc" name="data_doc"
                                                    class="form-control" type="date"/>
                                         </div>
                                     </div>
@@ -185,7 +186,7 @@
                                         </div>
                                         <div class="col">
                                             <label for="plat" class="form-label">Plat</label>
-                                            <input value="<?php echo $res->n_plat_n; ?>" id="plat" class="form-control"
+                                            <input value="<?php echo $res->n_plat_t; ?>" id="plat" class="form-control"
                                                    name="n_plat_t"
                                                    type="text"/>
                                         </div>
@@ -242,7 +243,7 @@
                         <td><?php echo $res->seria; ?></td>
                         <td><?php echo $res->numdoc; ?></td>
                         <td><?php echo $res->descript_d; ?></td>
-                        <td><?php echo $res->n_plat_n; ?></td>
+                        <td><?php echo $res->n_plat_t; ?></td>
                         <td>
                             <div class="d-flex justify-content-center gap-2">
                                 <a href="?id=<?php echo $res->id; ?>"
